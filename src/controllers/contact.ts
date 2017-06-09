@@ -1,4 +1,5 @@
 import * as nodemailer from "nodemailer";
+import * as smtpTrasport from 'nodemailer-smtp-transport';
 import {Request, Response} from "express";
 
 const transporter = nodemailer.createTransport({
@@ -8,6 +9,9 @@ const transporter = nodemailer.createTransport({
     pass: process.env.SENDGRID_PASSWORD
   }
 });
+
+// for using  onlykey 
+// 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
 
 /**
  * GET /contact
@@ -36,9 +40,9 @@ export let postContact = (req: Request, res: Response) => {
   }
 
   const mailOptions = {
-    to: "your@email.com",
-    from: `${req.body.name} <${req.body.email}>`,
-    subject: "Contact Form",
+    to: `${req.body.name} <${req.body.email}>`,
+    from: "admin@kyanhshoes.com",
+    subject: "Thank you to contact us",
     text: req.body.message
   };
 
