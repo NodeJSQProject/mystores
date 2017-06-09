@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Add New Product
+  form.form-horizontal(id='newItem-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='productID') ProductID
+      .col-sm-7
+        input.form-control(type='productID', name='productID', id='productID', placeholder='product ID', autofocus, required)
+    .form-group
+      label.col-sm-3.control-label(for='name') Tên Sản Phẩm
+      .col-sm-7
+        input.form-control(type='name', name='name', id='name', placeholder='Tên Sản Phẩm', autofocus, required)
+    .form-group
+      label.col-sm-3.control-label(for='linkAMZ') Link Amazon
+      .col-sm-7
+        input.form-control(type='linkAMZ', name='linkAMZ', id='linkAMZ', placeholder='Link amazon', required)
+    .form-group
+      label.col-sm-3.control-label(for='vietnamPrice') Gía bán ở Việt nam 
+      .col-sm-7
+        input.form-control(type='vietnamPrice', name='vietnamPrice', id='vietnamPrice', placeholder='Gía bán ở Việt nam VND', required)
+    .form-group
+      label.col-sm-3.control-label(for='japanPrice') Gía bán ở Nhật Bản
+      .col-sm-7
+        input.form-control(type='japanPrice', name='japanPrice', id='japanPrice', placeholder='Gía bán ở Nhật Bản Yên', required)
+    .form-group
+      label.col-sm-3.control-label(for='category') Phân loại sản phẩm
+      .col-sm-7
+        input.form-control(type='category', name='category', id='category', placeholder='Chọn phân loại sản phẩm', required)
+    .form-group
+      label.col-sm-3.control-label(for='productInfor') Thông Tin Cụ Thể Sản Phẩm
+      .col-sm-7
+        textarea.form-control(type='productInfor', name='productInfor', id='productInfor', placeholder='Thông tin chi tiết về sản phẩm', required)
+    
+    .form-group
+      .col-sm-offset-3.col-sm-7
+        button.btn.btn-success(type='submit')
+          i.fa.fa-user-plus
+          | Add New Product

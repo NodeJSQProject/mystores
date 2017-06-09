@@ -31,8 +31,8 @@
             "check-decl",
             "check-operator",
             "check-module",
-            "check-separator",
-            "check-type"
+            "check-separator"
+            // "check-type"
         ],
         "typedef-whitespace": [
             true,

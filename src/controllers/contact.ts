@@ -1,5 +1,5 @@
 import * as nodemailer from "nodemailer";
-import * as smtpTrasport from 'nodemailer-smtp-transport';
+import * as smtpTrasport from "nodemailer-smtp-transport";
 import {Request, Response} from "express";
 
 const transporter = nodemailer.createTransport({
@@ -9,9 +9,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.SENDGRID_PASSWORD
   }
 });
-
-// for using  onlykey 
-// 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
 
 /**
  * GET /contact

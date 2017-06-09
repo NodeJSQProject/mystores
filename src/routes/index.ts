@@ -1,15 +1,15 @@
-import * as express from 'express';
-import * as passport from 'passport';
+import * as express from "express";
+import * as passport from "passport";
 import * as homeController from "../controllers/home";
 import * as userController from "../controllers/user";
 import * as contactController from "../controllers/contact";
 const router = express.Router();
 import * as passportConfig from "../config/passport";
 import * as apiController from "../controllers/api";
+import * as productController from "../controllers/product";
 /**
  * Login routes.
  */
-//router.get("/login", userController.getLogin);
 router.get("/", homeController.index);
 router.get("/login", userController.getLogin);
 router.post("/login", userController.postLogin);
@@ -33,7 +33,12 @@ router.get("/account/unlink/:provider", passportConfig.isAuthenticated, userCont
 router.get("/api", apiController.getApi);
 router.get("/auth/facebook", passport.authenticate("facebook", { scope: ["email", "public_profile"] }));
 router.get("/auth/facebook/callback", passport.authenticate("facebook", { failureRedirect: "/login" }), (req, res) => {
-  res.redirect(req.session.returnTo || "/");
+    res.redirect(req.session.returnTo || "/");
 });
-
-export { router }
+/**
+ * for Route 
+ */
+router.get("/admin/product", passportConfig.isAuthenticated, productController.newFormItem);
+router.post("/admin/product", passportConfig.isAuthenticated, productController.addItem);
+router.get("/admin/products/list", passportConfig.isAuthenticated, productController.ListItems);
+export { router };
