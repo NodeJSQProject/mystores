@@ -3,20 +3,24 @@ extends ../layout
 block content
   .page-header
     h3 Add New Product
-  form.form-horizontal(id='newItem-form', method='POST')
+  form.form-horizontal(id='newItem-form', method='POST',enctype='multipart/form-data')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group
-      label.col-sm-3.control-label(for='productID') ProductID
+      label.col-sm-3.control-label(for='productId') ProductID
       .col-sm-7
-        input.form-control(type='productID', name='productID', id='productID', placeholder='product ID', autofocus, required)
+        input.form-control(type='productId', name='productId', id='productId', placeholder='product Id', autofocus, required)
+    .form-group
+      label.col-sm-3.control-label(for='image') Upload Image
+      .col-sm-7
+        input(type='file', name='imageupload')
     .form-group
       label.col-sm-3.control-label(for='name') Tên Sản Phẩm
       .col-sm-7
         input.form-control(type='name', name='name', id='name', placeholder='Tên Sản Phẩm', autofocus, required)
     .form-group
-      label.col-sm-3.control-label(for='linkAMZ') Link Amazon
+      label.col-sm-3.control-label(for='namlinkAmazone') Link Amazon
       .col-sm-7
-        input.form-control(type='linkAMZ', name='linkAMZ', id='linkAMZ', placeholder='Link amazon', required)
+        input.form-control(type='namlinkAmazone', name='namlinkAmazone', id='namlinkAmazone', placeholder='Link amazon', required)
     .form-group
       label.col-sm-3.control-label(for='vietnamPrice') Gía bán ở Việt nam 
       .col-sm-7

@@ -1,7 +1,7 @@
 import * as mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
-  productId: { type: String, unique: false },
+  productId: { type: String, unique: true },
   name: String,
   japanPrice: String,
   linkAmazon: String,
@@ -13,6 +13,10 @@ const productSchema = new mongoose.Schema({
   color: String,
   size: String,
   category: String,
+  delFlag: {
+      type: Boolean,
+      default: false
+  }
 });
 
 const Product = mongoose.model("Product", productSchema);

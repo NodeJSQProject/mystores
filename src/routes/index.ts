@@ -36,9 +36,9 @@ router.get("/auth/facebook/callback", passport.authenticate("facebook", { failur
     res.redirect(req.session.returnTo || "/");
 });
 /**
- * for Route 
+ * for Route
  */
 router.get("/admin/product", passportConfig.isAuthenticated, productController.newFormItem);
 router.post("/admin/product", passportConfig.isAuthenticated, productController.addItem);
-router.get("/admin/products/list", passportConfig.isAuthenticated, productController.ListItems);
+router.get("/admin/product/list", passportConfig.isAuthenticated, productController.listItems);
 export { router };
